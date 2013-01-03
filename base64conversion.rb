@@ -51,14 +51,11 @@ def base64Encoder(aString)
 	return base64array
 end
 
-s = String.new("ABCde GHITestINGThisOutpu")
+s = String.new("Hello! This is a test output!")
 b64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
 base64string = base64Encoder(s)
-print "The original string: "
-puts s
-print "The blocks are: "
-createBlocks(s).each {|x| print x," "}
-puts
+print "The original string: ",s,"\n"
+
 puts "The base64 string is"
 base64string.each do |x|
 	x.each do |y|
@@ -71,7 +68,6 @@ puts
 __END__
 
 # This is the output of the above program
-The original string: ABCde GHITestINGThisOutpu
-The blocks are: ABC de  GHI Tes tIN GTh isO utp u 
+The original string: Hello! This is a test output!
 The base64 string is
-QUJDZGUgR0hJVGVzdElOR1RoaXNPdXRwdQ==
+SGVsbG8hIFRoaXMgaXMgYSB0ZXN0IG91dHB1dCE=
