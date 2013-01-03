@@ -1,5 +1,5 @@
 # Ashwin Saval
-# The outout of this program is an unmapped output
+# The output of this program is an unmapped output
 # to get actual values, a hash table needs to be built with base64 mappings
 
 # Returns an array that contains blocks of the string of 3bytes each
@@ -52,7 +52,7 @@ end
 
 s = String.new("ABCde GHITestINGThisOutpu")
 base64string = base64Encoder(s)
-puts "The original string :"
+print "The original string: "
 puts s
 print "The blocks are: "
 createBlocks(s).each {|x| print x," "}
@@ -62,3 +62,19 @@ base64string.each do |x|
 	x.each {|y| print y," "}
 	puts
 end
+
+__END__
+
+# This is the output of the above program
+The original string: ABCde GHITestINGThisOutpu
+The blocks are: ABC de  GHI Tes tIN GTh isO utp u 
+The base64 values of this string are
+16 20 9 3 
+25 6 20 32 
+17 52 33 9 
+21 6 21 51 
+29 4 37 14 
+17 53 17 40 
+26 23 13 15 
+29 23 17 48 
+29 16 = = 
