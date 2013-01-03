@@ -26,6 +26,7 @@ def base64(block24bit)
 	return base64
 end
 
+
 # returns an array with values of a base64 string
 def base64Encoder(aString)
 	bytes3Blocks = createBlocks(aString)
@@ -33,14 +34,15 @@ def base64Encoder(aString)
 	override = 0
 	bytes3Blocks.each do |block|
 		if block.length == 3
-			block24bit = (block[0] << 16) | (block[1] << 8) | block[2]
+			block24bit = ((block[0].ord << 16) | (block[1].ord << 8) | block[2].ord)
 		elsif block.length == 1
 			override = 2
-			block24bit = (block[0] << 16) | (0 << 8) | 0
+			block24bit = ((block[0].ord << 16) | (0 << 8) | 0)
 		else
 			override = 1
-			block24bit = (block[0] << 16) | (block[1] << 8) | 0
+			block24bit = ((block[0].ord << 16) | (block[1].ord << 8) | 0)
 		end
+		
 		encodedVal = base64(block24bit)
 		# Override conditions
 		encodedVal[3], encodedVal[2] = "=", "=" if (override == 2)
@@ -51,30 +53,27 @@ def base64Encoder(aString)
 end
 
 s = String.new("ABCde GHITestINGThisOutpu")
+b64 = "ABCDEFGHIJKLMNOPQRSSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
 base64string = base64Encoder(s)
 print "The original string: "
 puts s
 print "The blocks are: "
 createBlocks(s).each {|x| print x," "}
 puts
-puts "The base64 values of this string are"
+puts "The base64 string is"
 base64string.each do |x|
-	x.each {|y| print y," "}
-	puts
+	x.each do |y|
+		print "=" if y == "="
+		print b64[y]
+	end
+	print " "
 end
+puts
 
 __END__
 
 # This is the output of the above program
 The original string: ABCde GHITestINGThisOutpu
 The blocks are: ABC de  GHI Tes tIN GTh isO utp u 
-The base64 values of this string are
-16 20 9 3 
-25 6 20 32 
-17 52 33 9 
-21 6 21 51 
-29 4 37 14 
-17 53 17 40 
-26 23 13 15 
-29 23 17 48 
-29 16 = = 
+The base64 string is
+QTJD YGTf RzgJ UGUy cEkO R0Rn ZWNP cWRv cQ==
