@@ -1,6 +1,5 @@
 # Ashwin Saval
-# The output of this program is an unmapped output
-# to get actual values, a hash table needs to be built with base64 mappings
+# Converts a regular string into base64
 
 # Returns an array that contains blocks of the string of 3bytes each
 def createBlocks(aString)
@@ -53,7 +52,7 @@ def base64Encoder(aString)
 end
 
 s = String.new("ABCde GHITestINGThisOutpu")
-b64 = "ABCDEFGHIJKLMNOPQRSSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+b64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
 base64string = base64Encoder(s)
 print "The original string: "
 puts s
@@ -76,4 +75,4 @@ __END__
 The original string: ABCde GHITestINGThisOutpu
 The blocks are: ABC de  GHI Tes tIN GTh isO utp u 
 The base64 string is
-QTJD YGTf RzgJ UGUy cEkO R0Rn ZWNP cWRv cQ==
+QUJD ZGUg R0hJ VGVz dElO R1Ro aXNP dXRw dQ==
