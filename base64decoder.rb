@@ -4,7 +4,7 @@ i = 0
 base64 = []
 base64blocks = []
 
-
+#Store the decimal base64 values into the base64 array
 for i in 0...s.length
 	if s[i] == "="
 		base64[i] = 0 
@@ -13,6 +13,7 @@ for i in 0...s.length
 	end
 end
 
+#create blocks of 4 base64 numbers
 i = 4
 0.step((base64.length-1), 4) do |x|
 	base64blocks << base64[x...i]
@@ -40,7 +41,7 @@ rawDecodedBase64.each do |x|
 end
 
 print "Input string: ",s,"\n"
-puts "The output of the input string is"
+puts "The ASCII value of the base64 input string is"
 #Prints the ASCII string
 decodedBase64.each do |x|
 	print x.chr
@@ -51,5 +52,5 @@ This uses the output of "base64conversion.rb"
 
 Program Output:
 Input string: SGVsbG8hIFRoaXMgaXMgYSB0ZXN0IG91dHB1dCE=
-The output of the input string is
+The ASCII value of the base64 input string is
 Hello! This is a test output!
