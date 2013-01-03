@@ -65,7 +65,6 @@ base64string.each do |x|
 		print "=" if y == "="
 		print b64[y]
 	end
-	print " "
 end
 puts
 
@@ -75,4 +74,4 @@ __END__
 The original string: ABCde GHITestINGThisOutpu
 The blocks are: ABC de  GHI Tes tIN GTh isO utp u 
 The base64 string is
-QUJD ZGUg R0hJ VGVz dElO R1Ro aXNP dXRw dQ==
+QUJDZGUgR0hJVGVzdElOR1RoaXNPdXRwdQ==
