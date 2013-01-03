@@ -1,3 +1,7 @@
+# Ashwin Saval
+# The outout of this program is an unmapped output
+# to get actual values, a hash table needs to be built with base64 mappings
+
 # Returns an array that contains blocks of the string of 3bytes each
 def createBlocks(aString)
 	i = 0
@@ -22,17 +26,11 @@ def base64(block24bit)
 	return base64
 end
 
+# returns an array with values of a base64 string
 def base64Encoder(aString)
 	bytes3Blocks = createBlocks(aString)
 	base64array = []
 	override = 0
-	# Debug
-	#bytes3Blocks.each do |x|
-	#	0.upto(2) {|i| print x[i],"-->"}
-	#	puts
-	#end
-	#puts
-	#
 	bytes3Blocks.each do |block|
 		if block.length == 3
 			block24bit = (block[0] << 16) | (block[1] << 8) | block[2]
